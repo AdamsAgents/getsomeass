@@ -35,6 +35,10 @@ function PeachLogo({ large = false }: { large?: boolean }) {
   return <div className={large ? "peach-logo large" : "peach-logo"} aria-label="Adam's Software Services peach logo"><span /></div>;
 }
 
+function AccentIcon({ label }: { label: string }) {
+  return <div className="accent-icon" aria-hidden="true">{label.slice(0, 1)}</div>;
+}
+
 export default function Home() {
   return (
     <main>
@@ -57,7 +61,7 @@ export default function Home() {
         <p className="eyebrow">What we do</p>
         <h2>Useful tech. Better taste. Faster output.</h2>
         <div className="cards three">
-          {services.map((service) => <article className="card service-card" key={service.title}><span>{service.tag}</span><h3>{service.title}</h3><p>{service.text}</p></article>)}
+          {services.map((service) => <article className="card service-card" key={service.title}><AccentIcon label={service.title} /><span>{service.tag}</span><h3>{service.title}</h3><p>{service.text}</p></article>)}
         </div>
       </section>
 
@@ -68,11 +72,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell about-section">
+      <section className="about-wrap"><div className="section-shell about-section">
         <p className="eyebrow">About</p>
         <h2>Small studio energy. Big agency taste.</h2>
         <p>Adam&apos;s Software Services is a one-person creative and tech studio based in New York. I build AI products, design websites, and help businesses show up better online — with a little help from my AI agents.</p>
-      </section>
+      </div></section>
 
       <section className="cheeky section-shell">
         <h2>If you like what you see from Adam&apos;s Software Services, then come get some ASS!</h2>
