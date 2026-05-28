@@ -37,14 +37,14 @@ h3 { margin: 0; font-size: 24px; letter-spacing: -.045em; }
 .btn:hover { background: #3a2722; }
 .btn.full { width: 100%; }
 .text-cta { color: var(--ink); font-weight:950; text-decoration:none; border-bottom: 2px solid var(--coral); padding-bottom: 3px; }
-.peach-logo { width: 44px; height: 44px; border-radius: 15px; background: #fff; display:grid; place-items:center; box-shadow: 0 12px 30px rgba(255,97,77,.18); }
-.peach-logo span { width: 30px; height: 30px; display:block; border-radius: 46% 46% 58% 58%; background: linear-gradient(145deg, #ffcabb, #ff725f); position: relative; }
-.peach-logo span::before { content:""; position:absolute; width: 15px; height: 9px; border-radius: 100% 0 100% 0; background:#6f8f5f; top:-7px; right:-3px; transform: rotate(22deg); }
-.peach-logo span::after { content:""; position:absolute; left: 50%; top: 8%; height: 84%; border-left: 3px solid rgba(112,43,36,.30); border-radius: 999px; transform: translateX(-50%); }
-.peach-logo.large { width: min(400px, 78vw); height: min(400px, 78vw); border-radius: 48px; background: radial-gradient(circle at 30% 25%, #fff8f4, #ffe5da 68%); }
-.peach-logo.large span { width: 260px; height: 260px; border-radius: 46% 46% 62% 62%; }
-.peach-logo.large span::before { width: 88px; height: 52px; top: -48px; right: 0; }
-.peach-logo.large span::after { border-left-width: 11px; top: 7%; height: 86%; }
+.peach-logo { width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(135deg, #ffb2a0, #ff745f); display:grid; place-items:center; box-shadow: 0 12px 30px rgba(255,97,77,.22); }
+.peach-logo span { width: 29px; height: 27px; display:block; border-radius: 48% 48% 60% 60%; background: #fffaf6; position: relative; transform: translateY(2px); }
+.peach-logo span::before { content:""; position:absolute; width: 15px; height: 9px; border-radius: 100% 0 100% 0; background:#fffaf6; top:-9px; left: 11px; transform: rotate(-22deg); }
+.peach-logo span::after { content:""; position:absolute; left: 50%; top: 12%; height: 82%; border-left: 3px solid #f2c7bc; border-radius: 999px; transform: translateX(-50%); }
+.peach-logo.large { width: min(410px, 78vw); height: min(410px, 78vw); border-radius: 58px; background: linear-gradient(135deg, #ffb2a0, #ff745f); box-shadow: 0 30px 90px rgba(255,97,77,.24); }
+.peach-logo.large span { width: 250px; height: 236px; border-radius: 48% 48% 61% 61%; }
+.peach-logo.large span::before { width: 92px; height: 58px; top: -60px; left: 92px; border-radius: 100% 0 100% 0; transform: rotate(-18deg); }
+.peach-logo.large span::after { border-left-width: 12px; border-color: #f1c9be; top: 11%; height: 82%; }
 .hero-mark { position: relative; min-height: 460px; display:grid; place-items:center; }
 .hero-mark::before { content:""; position:absolute; inset: 28px; border: 1px solid var(--line); border-radius: 52px; transform: rotate(-4deg); }
 .hero-mark p { position:absolute; bottom: 24px; left: 0; right: 0; margin: auto; max-width: 360px; background: rgba(255,253,250,.9); border:1px solid var(--line); padding: 14px 16px; border-radius: 18px; color: var(--muted); font-weight:850; box-shadow: var(--shadow); text-align:center; }
