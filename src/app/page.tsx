@@ -46,16 +46,16 @@ export default function Home() {
       <section id="top" className="hero section-shell">
         <div className="hero-copy">
           <p className="eyebrow">AI products · Websites · Social content</p>
-          <h1>We build products and experiences that actually work.</h1>
-          <p className="lede">AI-powered apps, websites, and social media content for businesses that want to stand out.</p>
-          <a className="btn" href="#contact">Let&apos;s work together</a>
+          <h1>Websites, AI products, and content with actual taste.</h1>
+          <p className="lede">Adam&apos;s Software Services builds sharp digital experiences for businesses that want to look better, move faster, and stand out online.</p>
+          <div className="hero-actions"><a className="btn" href="#contact">Let&apos;s work together</a><a className="text-cta" href="#work">See the work</a></div>
         </div>
-        <div className="hero-mark"><PeachLogo large /><div className="orb one" /><div className="orb two" /><p>Creative tech studio<br />based in New York.</p></div>
+        <div className="hero-mark"><PeachLogo large /><div className="mark-card"><strong>ASS</strong><span>Adam&apos;s Software Services</span></div><p>Creative tech studio based in New York. Built by Adam, powered by taste and AI agents.</p></div>
       </section>
 
       <section id="services" className="section-shell services-section">
         <p className="eyebrow">What we do</p>
-        <h2>Useful tech with personality.</h2>
+        <h2>Useful tech. Better taste. Faster output.</h2>
         <div className="cards three">
           {services.map((service) => <article className="card service-card" key={service.title}><span>{service.tag}</span><h3>{service.title}</h3><p>{service.text}</p></article>)}
         </div>
@@ -70,7 +70,7 @@ export default function Home() {
 
       <section className="section-shell about-section">
         <p className="eyebrow">About</p>
-        <h2>One-person studio. AI-assisted output. Real business taste.</h2>
+        <h2>Small studio energy. Big agency taste.</h2>
         <p>Adam&apos;s Software Services is a one-person creative and tech studio based in New York. I build AI products, design websites, and help businesses show up better online — with a little help from my AI agents.</p>
       </section>
 
