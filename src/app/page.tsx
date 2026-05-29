@@ -32,7 +32,7 @@ const projects = [
 ];
 
 function PeachLogo({ large = false }: { large?: boolean }) {
-  return <div className={large ? "peach-logo large" : "peach-logo"} aria-label="Adam's Software Services peach logo"><span /></div>;
+  return <img className={large ? "peach-logo large" : "peach-logo"} src="/icon.svg" alt="Adam's Software Services peach logo" />;
 }
 
 function AccentIcon({ label }: { label: string }) {
@@ -49,12 +49,12 @@ export default function Home() {
 
       <section id="top" className="hero section-shell">
         <div className="hero-copy">
-          <p className="eyebrow">AI products · Websites · Social content</p>
-          <h1>Websites, AI products, and content with actual taste.</h1>
-          <p className="lede">Adam&apos;s Software Services builds sharp digital experiences for businesses that want to look better, move faster, and stand out online.</p>
+          <p className="eyebrow">Adam&apos;s Software Services</p>
+          <h1>Digital work for businesses that want to stand out.</h1>
+          <p className="lede">AI-powered apps, custom websites, and social content built with taste, speed, and a little personality.</p>
           <div className="hero-actions"><a className="btn" href="#contact">Let&apos;s work together</a><a className="text-cta" href="#work">See the work</a></div>
         </div>
-        <div className="hero-mark"><PeachLogo large /><div className="mark-card"><strong>ASS</strong><span>Adam&apos;s Software Services</span></div><p>Creative tech studio based in New York. Built by Adam, powered by taste and AI agents.</p></div>
+        <div className="hero-mark"><PeachLogo large /><div className="mark-card"><strong>ASS</strong><span>Creative tech studio</span></div></div>
       </section>
 
       <section id="services" className="section-shell services-section">
@@ -87,7 +87,7 @@ export default function Home() {
         <div>
           <p className="eyebrow">Let&apos;s work together</p>
           <h2>Got a project in mind? Let&apos;s talk.</h2>
-          <p className="contact-note">Tell me what you&apos;re building, launching, fixing, or trying to make look less boring.</p>
+          <p className="contact-note">Tell me what you&apos;re building, launching, or trying to make look better online.</p>
           <p className="direct-email">Prefer email? <a href="mailto:hello@getsomeass.com">hello@getsomeass.com</a></p>
         </div>
         <form className="contact-card" action="mailto:hello@getsomeass.com" method="post" encType="text/plain">
