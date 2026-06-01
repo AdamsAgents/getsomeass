@@ -1,3 +1,5 @@
+import { ContactForm } from "./contact-form";
+
 const services = [
   {
     title: "AI Product Development",
@@ -88,16 +90,9 @@ export default function Home() {
           <p className="eyebrow">Let&apos;s work together</p>
           <h2>Got a project in mind? Let&apos;s talk.</h2>
           <p className="contact-note">Tell me what you&apos;re building, launching, or trying to make look better online.</p>
-          <p className="direct-email">Prefer email? <a href="mailto:hello@getsomeass.com">hello@getsomeass.com</a></p>
+          <p className="direct-email">Prefer email? <a href="mailto:adam@getsomeass.com">adam@getsomeass.com</a></p>
         </div>
-        <form className="contact-card" action="mailto:hello@getsomeass.com" method="post" encType="text/plain">
-          <label>Name<input name="name" required /></label>
-          <label>Email<input name="email" type="email" required /></label>
-          <label>Company <small>optional</small><input name="company" /></label>
-          <label>What do you need help with?<select name="service" defaultValue=""><option value="" disabled>Choose one</option><option>AI Product Development</option><option>Web Design</option><option>Social Media & Advertising</option><option>Not sure yet</option></select></label>
-          <label>Message<textarea name="message" required /></label>
-          <button className="btn full" type="submit">Send the idea</button>
-        </form>
+        <ContactForm />
       </section>
 
       <footer className="footer">

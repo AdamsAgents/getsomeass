@@ -99,3 +99,5 @@ input:focus, select:focus, textarea:focus { border-color: var(--peach); box-shad
   .cheeky { border-radius: 34px; margin: 40px 20px; }
   .footer { flex-direction:column; align-items:flex-start; }
 }
+.form-status { margin: 0; color: var(--muted); font-weight: 800; line-height: 1.5; }
+.form-status.error { color: #B42318; }
