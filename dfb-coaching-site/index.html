@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DFB Coaching | NYC Personal Training & Online Coaching</title>
+  <meta name="description" content="NYC in-person personal training, Everfit online coaching, and custom one-time training programs with Danny Bermeo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060606;
+      --ink: #f2efe8;
+      --muted: #aaa49a;
+      --soft: #d7d0c4;
+      --panel: #10100f;
+      --panel-2: #171614;
+      --line: rgba(242,239,232,.16);
+      --accent: #c7a86b;
+      --accent-2: #8f7a52;
+      --shadow: 0 22px 54px rgba(0,0,0,.42);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: auto; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,.80) 0%, rgba(5,5,5,.52) 48%, rgba(5,5,5,.82) 100%),
+        linear-gradient(180deg, rgba(5,5,5,.18) 0%, rgba(6,6,6,.58) 46%, #050505 100%),
+        radial-gradient(circle at 82% 4%, rgba(199,168,107,.16), transparent 28%),
+        url('assets/cinematic-gym-background.jpg') center top / cover no-repeat,
+        #050505;
+      color: var(--ink);
+      font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 42px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(6,6,6,.76);
+      border-bottom: 1px solid var(--line);
+      /* backdrop-filter removed for smoother scrolling */
+    }
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .brand strong {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 30px;
+      letter-spacing: .055em;
+      font-weight: 400;
+    }
+    .brand span { color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .18em; }
+    nav { display:flex; align-items:center; gap: 24px; color: var(--muted); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    nav a:hover { color: var(--ink); }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 14px 22px;
+      border: 1px solid rgba(199,168,107,.55);
+      background: var(--accent);
+      color: #080806;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); background: #dec488; }
+    .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      padding: 70px 0 56px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(6,6,6,.15), rgba(6,6,6,.45));
+    }
+    .hero-grid {
+      display:grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 46px;
+      align-items: start;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+    h1, h2, h3 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin: 0;
+      letter-spacing: .035em;
+      line-height: .88;
+    }
+    h1 { font-family: Manrope, system-ui, sans-serif; font-size: clamp(34px, 4vw, 58px); max-width: 900px; line-height: 1.08; letter-spacing: -.035em; text-transform: none; font-weight: 800; text-wrap: balance; }
+    .subhead {
+      color: var(--soft);
+      max-width: 610px;
+      font-size: clamp(17px, 2vw, 21px);
+      margin: 28px 0 30px;
+    }
+    .hero-actions { display:flex; flex-wrap:wrap; gap: 14px; align-items:center; }
+    .audio-note { color: var(--muted); font-size: 13px; font-weight: 700; margin: 14px 0 0; }
+    .video-note { position: absolute; left: 0; right: 0; bottom: -30px; margin: 0; text-align: center; }
+    .hero-copy { min-width: 0; }
+    .mini-proof {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 42px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .proof-item { background: rgba(12,12,11,.94); padding: 18px 16px; }
+    .proof-item strong { display:block; font-size: 22px; color: var(--ink); }
+    .proof-item span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing:.12em; font-weight: 800; }
+
+    .photo-stage {
+      position: relative;
+      min-height: 466px;
+      margin-top: 44px;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      contain: layout paint;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      background: #111;
+    }
+    .hero-photo img,
+    .hero-photo video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(.08) contrast(1.04) brightness(.88);
+    }
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(6,6,6,.08), transparent 32%, rgba(6,6,6,.04));
+      pointer-events: none;
+    }
+    .hero-photo video { position: relative; z-index: 1; }
+    .floating-card {
+      position: absolute;
+      left: 0;
+      bottom: 38px;
+      width: min(360px, 76%);
+      background: rgba(10,10,9,.88);
+      border: 1px solid var(--line);
+      /* backdrop-filter removed for smoother scrolling */
+      padding: 24px;
+      box-shadow: 0 26px 60px rgba(0,0,0,.45);
+    }
+    .floating-card p { margin: 0; color: var(--soft); font-weight: 700; }
+    .floating-card b { color: var(--accent); }
+
+    section { padding: 88px 0; }
+    .section-top {
+      display:grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr);
+      gap: 48px;
+      align-items:end;
+      margin-bottom: 34px;
+    }
+    .kicker { color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .title {
+      font-size: clamp(42px, 5.4vw, 78px);
+      max-width: 980px;
+      text-wrap: balance;
+    }
+    .section-top p { color: var(--muted); margin: 0; font-size: 18px; max-width: 620px; }
+    .section-side {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      padding: 24px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .section-side strong {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 48px;
+      line-height: .9;
+      letter-spacing: .04em;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .section-side span { color: var(--muted); font-weight: 700; }
+    .section-top.full { grid-template-columns: 1fr; }
+    .section-top.full .title { max-width: 1120px; }
+    .section-top.full p { margin-top: 18px; max-width: 760px; }
+
+    .services {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      background: var(--line);
+      gap: 1px;
+    }
+    .service {
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)), var(--panel);
+      padding: 34px;
+      min-height: 360px;
+    }
+    .service .number { color: var(--accent); font-size: 13px; font-weight: 900; letter-spacing: .18em; }
+    .service h3 { font-size: 42px; margin-top: 58px; }
+    .service p { color: var(--soft); margin: 18px 0 0; }
+    .service ul { list-style: none; padding: 0; margin: 24px 0 0; color: var(--muted); }
+    .service li { border-top: 1px solid rgba(242,239,232,.11); padding: 11px 0; }
+
+    .how-it-works {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.028);
+      padding: 34px;
+    }
+    .how-head {
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .how-head h2 { font-size: clamp(42px, 5vw, 72px); text-wrap: balance; }
+    .steps { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .step { background: rgba(12,12,11,.94); padding: 28px; min-height: 210px; }
+    .step span { color: var(--accent); font-weight: 900; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; }
+    .step h3 { font-size: 42px; margin: 34px 0 12px; }
+    .step p { color: var(--soft); margin: 0; }
+
+    .results-grid {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .quote {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      padding: 34px;
+      min-height: 230px;
+    }
+    .quote.featured { background: linear-gradient(145deg, rgba(199,168,107,.13), rgba(255,255,255,.035)), var(--panel-2); }
+    .quote blockquote,
+    .quote p {
+      margin: 0;
+      color: var(--soft);
+      font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 18px;
+      line-height: 1.55;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .quote.featured blockquote { color: var(--ink); }
+    .quote cite { display:block; margin-top: 22px; color: var(--accent); font-style: normal; font-weight: 900; font-size: 12px; letter-spacing:.14em; text-transform:uppercase; }
+
+    .about-grid {
+      display:grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 38px;
+      align-items: stretch;
+    }
+    .about-img { border:1px solid var(--line); min-height: 620px; overflow:hidden; background:#111; contain: layout paint; }
+    .about-img img { width:100%; height:100%; object-fit:cover; filter: grayscale(.05) contrast(1.04) brightness(.86); }
+    .about-copy {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      padding: 44px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .about-copy h2 { font-size: clamp(44px, 5.6vw, 78px); margin-bottom: 24px; text-wrap: balance; }
+    .about-copy p { color: var(--soft); font-size: 18px; margin: 0 0 18px; }
+    .about-proof {
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .about-proof .proof-item { background: rgba(12,12,11,.94); }
+
+    .contact-panel {
+      text-align: center;
+      padding: 78px 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(199,168,107,.11), rgba(255,255,255,.03)),
+        var(--panel);
+    }
+    .contact-panel h2 { font-size: clamp(52px, 8vw, 104px); max-width: 980px; margin: 0 auto; text-wrap: balance; }
+    .contact-panel p { color: var(--soft); max-width: 660px; margin: 26px auto 32px; font-size: 18px; }
+    .contact-actions { display:flex; justify-content:center; flex-wrap:wrap; gap: 14px; }
+
+    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    footer .wrap { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .privacy-note { width: 100%; color: #8f887d; font-size: 12px; line-height: 1.5; margin: 4px 0 0; }
+
+
+
+    .offer-grid {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .offer-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.018)), var(--panel);
+      padding: 34px;
+      min-height: 520px;
+      display:flex;
+      flex-direction:column;
+      gap: 20px;
+    }
+    .offer-card.featured { background: linear-gradient(145deg, rgba(199,168,107,.15), rgba(255,255,255,.035)), var(--panel); }
+    .offer-card h3 { font-size: 44px; margin-top: 8px; }
+    .price { font-family: "Bebas Neue", Impact, sans-serif; font-size: 58px; line-height: .9; letter-spacing: .04em; color: var(--ink); }
+    .price span { display:block; margin-top: 8px; font-family: Manrope, system-ui, sans-serif; font-size: 12px; line-height: 1.4; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; font-weight: 900; }
+    .offer-card p { color: var(--soft); margin: 0; }
+    .offer-card ul { list-style: none; padding: 0; margin: 0; color: var(--muted); }
+    .offer-card li { border-top: 1px solid rgba(242,239,232,.11); padding: 11px 0; }
+    .offer-card .btn { margin-top: auto; }
+
+    .everfit-panel,
+    .application-panel,
+    .instagram-panel {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+    .everfit-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+    .everfit-copy h3 { font-size: clamp(42px, 5vw, 72px); margin: 8px 0 18px; }
+    .everfit-copy p { color: var(--soft); font-size: 18px; }
+    .everfit-list { display:grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .everfit-item { background: rgba(12,12,11,.94); padding: 24px; }
+    .everfit-item strong { display:block; color: var(--ink); margin-bottom: 8px; }
+    .everfit-item span { color: var(--muted); font-size: 14px; }
+    .video-placeholder {
+      min-height: 320px;
+      border: 1px dashed rgba(199,168,107,.5);
+      background: linear-gradient(145deg, rgba(199,168,107,.12), rgba(255,255,255,.035));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding: 28px;
+      color: var(--soft);
+      font-weight: 800;
+    }
+
+    .application-panel h2 { font-size: clamp(48px, 7vw, 92px); margin: 8px 0 18px; }
+    .application-panel > p { color: var(--soft); max-width: 760px; font-size: 18px; }
+    .questionnaire { margin-top: 30px; display:grid; gap: 22px; }
+    .form-section { border: 1px solid var(--line); background: rgba(8,8,7,.7); padding: 26px; scroll-margin-top: 96px; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+    .form-section.needs-attention { border-color: rgba(199,168,107,.95); box-shadow: 0 0 0 3px rgba(199,168,107,.18); }
+    .form-section.form-error { border-color: rgba(255,96,96,.95); box-shadow: 0 0 0 3px rgba(255,96,96,.18); }
+    .form-section.form-error legend { color: #ff8a8a; }
+    .form-section legend { font-weight: 900; color: var(--ink); letter-spacing:.02em; padding: 0 8px; }
+    .path-confirmation {
+      display:none;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      border: 1px solid rgba(199,168,107,.45);
+      background: rgba(199,168,107,.12);
+      color: var(--ink);
+      padding: 14px 16px;
+      font-weight: 900;
+    }
+    .path-confirmation.is-visible { display:flex; }
+    .path-confirmation span { color: var(--soft); font-weight: 800; }
+    .path-confirmation button {
+      appearance:none;
+      border: 0;
+      background: transparent;
+      color: var(--gold);
+      font: inherit;
+      font-weight: 950;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+      white-space: nowrap;
+    }
+    .field-error { display:none; color: #ff8a8a; font-weight: 900; font-size: 14px; margin: 14px 0 0; }
+    .field-error.is-visible { display:block; }
+    .option-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .option-grid.two { grid-template-columns: repeat(2, 1fr); }
+    label.choice {
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      border: 1px solid var(--line);
+      padding: 14px;
+      color: var(--soft);
+      background: rgba(255,255,255,.025);
+      font-weight: 800;
+    }
+    .field-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .field { display:flex; flex-direction:column; gap: 8px; color: var(--muted); font-weight: 900; font-size: 12px; letter-spacing:.12em; text-transform:uppercase; }
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+      width:100%;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--ink);
+      padding: 13px 14px;
+      font: inherit;
+      outline: none;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus { border-color: rgba(199,168,107,.8); }
+    .form-note { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+
+    .instagram-strip { display:flex; gap: 16px; overflow-x:auto; padding: 8px 2px 16px; scroll-snap-type: x mandatory; }
+    .insta-card {
+      min-width: 280px;
+      max-width: 280px;
+      border: 1px solid var(--line);
+      background: rgba(12,12,11,.92);
+      scroll-snap-align:start;
+      overflow:hidden;
+    }
+    .insta-card img { width:100%; height: 310px; object-fit: cover; filter: grayscale(.08) contrast(1.03) brightness(.9); }
+    .insta-card div { padding: 18px; }
+    .insta-card strong { display:block; margin-bottom: 8px; }
+    .insta-card span { color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 940px) {
+      nav a:not(.btn) { display:none; }
+      .hero { min-height: auto; padding-top: 54px; }
+      .hero-grid, .section-top, .about-grid { grid-template-columns: 1fr; }
+      .hero-copy { display: contents; }
+      .eyebrow { order: 1; }
+      h1 { order: 2; }
+      .photo-stage { min-height: 426px; margin-top: 18px; margin-bottom: 34px; order: 3; }
+      .subhead { order: 4; }
+      .hero-actions { order: 5; }
+      .audio-note { order: 6; }
+      .mini-proof { order: 7; }
+      .about-img { display: grid; visibility: visible; }
+      .hero-photo { inset: 0; }
+      .services, .results-grid, .offer-grid, .everfit-grid, .field-grid { grid-template-columns: 1fr; }
+      .steps, .everfit-list, .option-grid, .option-grid.two { grid-template-columns: 1fr; }
+      .how-head { align-items: stretch; flex-direction: column; }
+      .how-head .btn { width: 100%; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .nav { height: 66px; }
+      .brand span { display:none; }
+      nav .btn { padding: 11px 13px; font-size: 10px; min-height: 42px; }
+      h1 { font-size: 34px; }
+      .title { font-size: 46px; }
+      .hero-actions, .contact-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .mini-proof { grid-template-columns: repeat(2, 1fr); }
+      .photo-stage { min-height: 366px; margin-top: 16px; margin-bottom: 32px; }
+      .floating-card { width: calc(100% - 28px); left: 14px; bottom: 14px; }
+      section { padding: 62px 0; }
+      .service, .quote, .about-copy { padding: 26px; }
+      .about-img { min-height: 460px; }
+      .about-proof { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top"><strong>DFB Coaching</strong><span>Danny Bermeo</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="#offers">Programs</a>
+        <a href="#apply">Apply</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#contact" class="btn">Start Coaching</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Choose the coaching path that fits your life — in-person, online, or a custom plan.</h1>
+          <p class="subhead">Work with Danny Bermeo through NYC in-person sessions, monthly online coaching inside Everfit, or a one-time custom training and nutrition plan built around your goals.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#apply">Start the Questionnaire</a>
+            <a class="btn ghost" href="#offers">Compare Programs</a>
+          </div>
+
+        </div>
+        <div class="photo-stage">
+          <div class="hero-photo">
+            <video src="assets/danny-intro-reel.mp4" poster="assets/danny-brand-intro.jpg" playsinline controls preload="metadata" aria-label="Danny Bermeo introducing himself and DFB Coaching"></video>
+          </div>
+          <p class="audio-note video-note">Tap play to hear Danny introduce himself.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="offers">
+      <div class="wrap">
+        <div class="section-top full">
+          <div>
+            <div class="kicker">Choose Your Coaching Path</div>
+            <h2 class="title">Three ways to work with Danny.</h2>
+            <p>Whether you need hands-on coaching in NYC, remote accountability through Everfit, or a one-time custom plan, every path starts with the same questionnaire so Danny can understand your goals, timeline, and expectations.</p>
+          </div>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer-card featured">
+            <div class="kicker">NYC In-Person</div>
+            <h3>Assessment + Training</h3>
+            <div class="price">$190<span>Initial 1-hour assessment</span></div>
+            <p>Your first session is an in-depth assessment built to understand where you are now and what your body needs next.</p>
+            <ul>
+              <li>Body Composition Scan</li>
+              <li>Nutrition Planning</li>
+              <li>Training Planning</li>
+              <li>Movement Assessment</li>
+              <li>1-hour workout included</li>
+              <li>Follow-up workouts: $190/session</li>
+            </ul>
+            <a class="btn" href="?path=in-person#apply" data-coaching-path="in-person">Apply for In-Person Coaching</a>
+          </article>
+
+          <article class="offer-card">
+            <div class="kicker">Online Coaching</div>
+            <h3>Everfit Program</h3>
+            <div class="price">$320<span>Per month</span></div>
+            <p>Remote coaching for people who want Danny’s structure, programming, and accountability without needing to train in NYC.</p>
+            <ul>
+              <li>Training delivered through Everfit</li>
+              <li>Weekly check-ins with Danny</li>
+              <li>Exercise videos and progress tracking</li>
+              <li>Ongoing adjustments based on your results</li>
+              <li>Built for consistency, not random workouts</li>
+            </ul>
+            <a class="btn" href="?path=online#apply" data-coaching-path="online">Apply for Online Coaching</a>
+          </article>
+
+          <article class="offer-card">
+            <div class="kicker">One-Time Plan</div>
+            <h3>Custom Program</h3>
+            <div class="price">$125<span>One-time purchase</span></div>
+            <p>A focused custom training and nutrition regiment for people who want a plan they can execute on their own.</p>
+            <ul>
+              <li>15-minute info call with Danny</li>
+              <li>Training plan based on your goals</li>
+              <li>Nutrition guidance for your situation</li>
+              <li>Clear next steps without monthly coaching</li>
+            </ul>
+            <a class="btn" href="?path=one-time#apply" data-coaching-path="one-time">Request a Custom Program</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="everfit">
+      <div class="wrap everfit-grid">
+        <div class="everfit-panel everfit-copy">
+          <div class="kicker">Online Coaching Portal</div>
+          <h3>How Everfit Works</h3>
+          <p>Everfit is where online clients receive their training plan, track workouts, review exercise instructions, and stay accountable between weekly check-ins with Danny.</p>
+          <div class="everfit-list">
+            <div class="everfit-item"><strong>Training Plan</strong><span>Your workouts are organized inside the app so you know exactly what to do.</span></div>
+            <div class="everfit-item"><strong>Progress Tracking</strong><span>Track completion, weights, reps, habits, and consistency over time.</span></div>
+            <div class="everfit-item"><strong>Weekly Check-ins</strong><span>Danny reviews your progress and adjusts the plan based on what is happening.</span></div>
+            <div class="everfit-item"><strong>Remote Accountability</strong><span>You get structure without needing to be in the same gym every week.</span></div>
+          </div>
+        </div>
+        <div class="video-placeholder">
+          <div>
+            <div class="kicker">Video Coming Soon</div>
+            <p>Danny will add a short video explaining how his Everfit coaching works and what online clients can expect.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="wrap">
+        <div class="application-panel">
+          <div class="kicker">Coaching Questionnaire</div>
+          <h2>Start with the right plan.</h2>
+          <p>Fill this out whether you are interested in NYC in-person sessions, online coaching through Everfit, or a one-time custom program. Danny will use your answers to understand your goals and recommend the right next step.</p>
+
+          <form class="questionnaire" action="https://formsubmit.co/dfbcoaching@outlook.com" method="POST">
+            <input type="hidden" name="_subject" value="New DFB Coaching Questionnaire Submission">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="Clicked Coaching Path" value="">
+
+            <div class="path-confirmation" data-path-confirmation aria-live="polite">
+              <span>Applying for: <strong data-path-label></strong></span>
+              <button type="button" data-change-path>change</button>
+            </div>
+
+            <fieldset class="form-section" data-program-section>
+              <legend>Which coaching option are you interested in? <span aria-hidden="true">*</span></legend>
+              <div class="option-grid">
+                <label class="choice"><input type="radio" name="Coaching Interest" value="NYC In-Person Sessions" data-path-value="in-person" required> NYC in-person sessions</label>
+                <label class="choice"><input type="radio" name="Coaching Interest" value="Online Everfit Coaching" data-path-value="online" required> Online Everfit coaching</label>
+                <label class="choice"><input type="radio" name="Coaching Interest" value="One-Time Custom Program" data-path-value="one-time" required> One-time custom program</label>
+              </div>
+              <p class="field-error" data-program-error>Please choose the coaching option you’re interested in before submitting.</p>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>What are you most serious about achieving in the next 4–6 months?</legend>
+              <div class="option-grid">
+                <label class="choice"><input type="radio" name="Primary Goal" value="Fat Loss & Body Recomposition" required> Fat Loss & Body Recomposition</label>
+                <label class="choice"><input type="radio" name="Primary Goal" value="Sport Specific" required> Sport Specific — powerlifting, marathon training, etc.</label>
+                <label class="choice"><input type="radio" name="Primary Goal" value="Learn How To Work Out Correctly" required> Learn How To Work Out Correctly</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>How old are you?</legend>
+              <div class="option-grid">
+                <label class="choice"><input type="radio" name="Age Range" value="Under 18" required> Under 18</label>
+                <label class="choice"><input type="radio" name="Age Range" value="18-25" required> 18–25</label>
+                <label class="choice"><input type="radio" name="Age Range" value="25-30" required> 25–30</label>
+                <label class="choice"><input type="radio" name="Age Range" value="30+" required> 30+</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>What’s your motivation to start now?</legend>
+              <textarea name="Motivation To Start Now" required placeholder="Tell Danny what changed, what you want, and why now matters."></textarea>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>How long are you prepared to commit to seeing real results?</legend>
+              <div class="option-grid">
+                <label class="choice"><input type="radio" name="Commitment Timeline" value="4-6 months" required> 4–6 months</label>
+                <label class="choice"><input type="radio" name="Commitment Timeline" value="6-9 months" required> 6–9 months</label>
+                <label class="choice"><input type="radio" name="Commitment Timeline" value="9+ months" required> 9+ months</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>What are YOUR expectations of me as your coach?</legend>
+              <textarea name="Coach Expectations" required placeholder="What do you need from Danny to feel supported, challenged, and accountable?"></textarea>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Contact Information</legend>
+              <div class="field-grid">
+                <label class="field">Name<input type="text" name="Name" required></label>
+                <label class="field">Email<input type="email" name="Email" required></label>
+                <label class="field">Phone Number<input type="tel" name="Phone Number" required></label>
+                <label class="field">Location<input type="text" name="Location" required placeholder="City / neighborhood"></label>
+              </div>
+              <p class="form-note">By submitting, you agree to let DFB Coaching contact you about coaching. Your information is used only to respond to your inquiry.</p>
+            </fieldset>
+
+            <button class="btn" type="submit">Submit Questionnaire</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="instagram">
+      <div class="wrap">
+        <div class="section-top">
+          <div>
+            <div class="kicker">Danny’s Instagram</div>
+            <h2 class="title">Training cues, lifts, and coaching updates.</h2>
+          </div>
+          <div class="section-side">
+            <strong>@dfbcoaching</strong>
+            <span>Follow Danny for training education, gym content, and coaching updates.</span>
+            <a class="btn ghost" href="https://www.instagram.com/dfbcoaching/" target="_blank" rel="noopener">Open Instagram</a>
+          </div>
+        </div>
+        <div class="instagram-strip" aria-label="DFB Coaching Instagram preview">
+          <article class="insta-card"><img src="assets/danny-training-education.jpg" alt="Danny demonstrating training education"><div><strong>Training education</strong><span>Form, exercise selection, and smarter execution.</span></div></article>
+          <article class="insta-card"><img src="assets/danny-pr-lift.jpg" alt="Danny lifting in the gym"><div><strong>Strength work</strong><span>Real training, progressive overload, and intent.</span></div></article>
+          <article class="insta-card"><img src="assets/danny-wrist-straps.jpg" alt="Danny explaining wrist straps"><div><strong>Gym guidance</strong><span>Practical coaching cues you can apply.</span></div></article>
+          <article class="insta-card"><img src="assets/danny-gym-lifestyle.jpg" alt="Danny in the gym"><div><strong>DFB Coaching</strong><span>NYC personal training and online coaching.</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="wrap">
+        <div class="section-top">
+          <div>
+            <div class="kicker">What My Clients Have to Say</div>
+            <h2 class="title">Real feedback from people who wanted a plan.</h2>
+          </div>
+          <div class="section-side">
+            <strong>5/5 rating.</strong>
+            <span>Clients mention structure, patience, accountability, and programming built around their goals.</span>
+          </div>
+        </div>
+        <div class="results-grid">
+          <article class="quote featured">
+            <blockquote>“Do yourself a favor and contact Danny! I cannot recommend him enough!”</blockquote>
+            <cite>Jack K · Bark Review</cite>
+          </article>
+          <article class="quote">
+            <p>“Danny takes the time to understand your goals, capabilities, training style and formulates a plan that sets you up for success.”</p>
+            <cite>Mike F · Bark Review</cite>
+          </article>
+          <article class="quote">
+            <p>“When I started, I was a novice and felt directionless, but Danny immediately designed a structured, effective program tailored to my goals.”</p>
+            <cite>Dan D · Bark Review</cite>
+          </article>
+          <article class="quote">
+            <p>“Danny has been a game-changer in my fitness journey… incredibly patient and attentive.”</p>
+            <cite>Ray O. · Bark Review</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="about-img">
+          <img src="assets/danny-gym-lifestyle.jpg" alt="Danny Bermeo in the gym" />
+        </div>
+        <div class="about-copy">
+          <div class="kicker">About Me</div>
+          <h2>Cali born. NYC raised. Built through coaching.</h2>
+          <p>I’m Danny Bermeo, a NYC personal trainer focused on helping people improve their body composition through smarter training, better execution, and sustainable habits.</p>
+          <p>I was born in Cali, Colombia and raised in New York City. After 8+ years in the fitness industry, I’m building DFB Coaching while serving as Personal Training Manager at GYM NYC.</p>
+          <p>My coaching philosophy is direct: understand the body, choose better exercises, use progressive overload, and train with intent. No random workouts. No short-term fixes. Just consistent work that moves you forward.</p>
+          <div class="about-proof" aria-label="Danny Bermeo credentials">
+            <div class="proof-item"><strong>8+</strong><span>Years in fitness</span></div>
+            <div class="proof-item"><strong>3,000+</strong><span>Equinox hours</span></div>
+            <div class="proof-item"><strong>25+</strong><span>Weekly clients</span></div>
+            <div class="proof-item"><strong>5/5</strong><span>Bark reviews</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div class="kicker">Start Coaching</div>
+          <h2>Ready to choose your path?</h2>
+          <p>Start with the questionnaire so Danny can understand your goals and point you toward the right coaching option.</p>
+          <div class="contact-actions">
+            <a class="btn" href="#apply">Start Questionnaire</a>
+            <a class="btn ghost" href="https://invite.everfit.io/NHJ0WVUK2G" target="_blank" rel="noopener">Everfit Portal</a>
+            <a class="btn ghost" href="https://www.instagram.com/dfbcoaching/" target="_blank" rel="noopener">DM @dfbcoaching</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© DFB Coaching · Danny Bermeo</span>
+      <span>NYC Personal Training · Online Coaching · Nutrition Coaching</span>
+      <span>Site by <a href="https://getsomeass.com" target="_blank" rel="noopener">getsomeass.com</a></span>
+      <p class="privacy-note">Privacy note: If you contact DFB Coaching by email or Instagram, your information is used only to respond to your inquiry. This site does not sell personal information.</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const form = document.querySelector('.questionnaire');
+      if (!form) return;
+
+      const pathMap = {
+        'in-person': 'NYC In-Person Sessions',
+        online: 'Online Everfit Coaching',
+        'one-time': 'One-Time Custom Program'
+      };
+
+      const pathLabels = {
+        'in-person': 'NYC In-Person Coaching',
+        online: 'Online Coaching',
+        'one-time': 'One-Time Custom Program'
+      };
+
+      const confirmation = form.querySelector('[data-path-confirmation]');
+      const confirmationLabel = form.querySelector('[data-path-label]');
+      const changeButton = form.querySelector('[data-change-path]');
+      const clickedPathInput = form.querySelector('input[name="Clicked Coaching Path"]');
+      const programSection = form.querySelector('[data-program-section]');
+      const programError = form.querySelector('[data-program-error]');
+      const programRadios = Array.from(form.querySelectorAll('input[name="Coaching Interest"]'));
+
+      const getSection = (field) => field.closest('.form-section') || field;
+      const clearAttention = () => {
+        form.querySelectorAll('.form-section.needs-attention').forEach((section) => {
+          section.classList.remove('needs-attention');
+        });
+      };
+
+      const showProgramError = () => {
+        if (programSection) programSection.classList.add('form-error', 'needs-attention');
+        if (programError) programError.classList.add('is-visible');
+      };
+
+      const hideProgramError = () => {
+        if (programSection) programSection.classList.remove('form-error');
+        if (programError) programError.classList.remove('is-visible');
+      };
+
+      const selectedProgram = () => programRadios.find((radio) => radio.checked);
+
+      const scrollToProgram = () => {
+        if (!programSection) return;
+        programSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        window.setTimeout(() => {
+          const firstRadio = programRadios[0];
+          if (firstRadio && typeof firstRadio.focus === 'function') {
+            firstRadio.focus({ preventScroll: true });
+          }
+        }, 450);
+      };
+
+      const setPath = (path, updateUrl = false) => {
+        const value = pathMap[path];
+        if (!value) return false;
+
+        const radio = programRadios.find((item) => item.value === value);
+        if (radio) radio.checked = true;
+        if (clickedPathInput) clickedPathInput.value = pathLabels[path] || value;
+        if (confirmationLabel) confirmationLabel.textContent = pathLabels[path] || value;
+        if (confirmation) confirmation.classList.add('is-visible');
+        hideProgramError();
+
+        if (updateUrl && window.history && window.location) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('path', path);
+          url.hash = 'apply';
+          window.history.replaceState(null, '', url.toString());
+        }
+
+        return true;
+      };
+
+      const clearPath = () => {
+        programRadios.forEach((radio) => { radio.checked = false; });
+        if (clickedPathInput) clickedPathInput.value = '';
+        if (confirmation) confirmation.classList.remove('is-visible');
+        hideProgramError();
+
+        if (window.history && window.location) {
+          const url = new URL(window.location.href);
+          url.searchParams.delete('path');
+          url.hash = 'apply';
+          window.history.replaceState(null, '', url.toString());
+        }
+
+        scrollToProgram();
+      };
+
+      const applyPathFromUrl = () => {
+        const url = new URL(window.location.href);
+        const path = url.searchParams.get('path');
+        if (pathMap[path]) setPath(path, false);
+      };
+
+      document.querySelectorAll('[data-coaching-path]').forEach((link) => {
+        link.addEventListener('click', () => {
+          const path = link.getAttribute('data-coaching-path');
+          window.setTimeout(() => setPath(path, true), 0);
+        });
+      });
+
+      if (changeButton) changeButton.addEventListener('click', clearPath);
+
+      programRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          hideProgramError();
+          const matchedPath = Object.keys(pathMap).find((path) => pathMap[path] === radio.value);
+          if (clickedPathInput) clickedPathInput.value = matchedPath ? (pathLabels[matchedPath] || radio.value) : radio.value;
+          if (confirmation) confirmation.classList.remove('is-visible');
+        });
+      });
+
+      const focusFirstInvalid = () => {
+        if (!selectedProgram()) {
+          clearAttention();
+          showProgramError();
+          scrollToProgram();
+          return false;
+        }
+
+        const firstInvalid = form.querySelector(':invalid');
+        if (!firstInvalid) return true;
+
+        clearAttention();
+        const section = getSection(firstInvalid);
+        section.classList.add('needs-attention');
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        window.setTimeout(() => {
+          if (typeof firstInvalid.focus === 'function') {
+            firstInvalid.focus({ preventScroll: true });
+          }
+        }, 450);
+
+        return false;
+      };
+
+      form.addEventListener('submit', (event) => {
+        if (!selectedProgram() || !form.checkValidity()) {
+          event.preventDefault();
+          focusFirstInvalid();
+        }
+      });
+
+      form.addEventListener('invalid', (event) => {
+        event.preventDefault();
+        focusFirstInvalid();
+      }, true);
+
+      form.addEventListener('input', clearAttention);
+      form.addEventListener('change', clearAttention);
+      window.addEventListener('hashchange', applyPathFromUrl);
+      applyPathFromUrl();
+    })();
+  </script>
+</body>
+</html>
