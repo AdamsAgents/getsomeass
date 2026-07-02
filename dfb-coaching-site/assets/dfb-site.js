@@ -21,6 +21,13 @@
   const programSection = form.querySelector('[data-program-section]');
   const programError = form.querySelector('[data-program-error]');
   const programRadios = Array.from(form.querySelectorAll('input[name="Coaching Interest"]'));
+  const updateChoiceStates = () => {
+    form.querySelectorAll('label.choice').forEach((label) => {
+      const radio = label.querySelector('input[type="radio"]');
+      label.classList.toggle('is-selected', Boolean(radio && radio.checked));
+    });
+  };
+
 
   const getSection = (field) => field.closest('.form-section') || field;
   const selectedProgram = () => programRadios.find((radio) => radio.checked);
@@ -55,6 +62,7 @@
     if (!value) return false;
     const radio = programRadios.find((item) => item.value === value);
     if (radio) radio.checked = true;
+    updateChoiceStates();
     if (clickedPathInput) clickedPathInput.value = pathLabels[path] || value;
     if (confirmationLabel) confirmationLabel.textContent = pathLabels[path] || value;
     if (confirmation) confirmation.classList.add('is-visible');
@@ -69,6 +77,7 @@
 
   const clearPath = () => {
     programRadios.forEach((radio) => { radio.checked = false; });
+    updateChoiceStates();
     if (clickedPathInput) clickedPathInput.value = '';
     if (confirmation) confirmation.classList.remove('is-visible');
     hideProgramError();
@@ -90,6 +99,7 @@
   programRadios.forEach((radio) => {
     radio.addEventListener('change', () => {
       hideProgramError();
+      updateChoiceStates();
       const matchedPath = Object.keys(pathMap).find((path) => pathMap[path] === radio.value);
       if (clickedPathInput) clickedPathInput.value = matchedPath ? (pathLabels[matchedPath] || radio.value) : radio.value;
       if (confirmation) confirmation.classList.remove('is-visible');
@@ -128,5 +138,6 @@
   form.addEventListener('input', clearAttention);
   form.addEventListener('change', clearAttention);
   window.addEventListener('popstate', applyPathFromUrl);
+  updateChoiceStates();
   applyPathFromUrl();
 })();
