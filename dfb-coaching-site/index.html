@@ -476,19 +476,30 @@
     input:focus, textarea:focus { border-color: rgba(199,168,107,.8); }
     .form-note { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
 
-    .instagram-strip { display:flex; gap: 16px; overflow-x:auto; padding: 8px 2px 16px; scroll-snap-type: x mandatory; }
+    .instagram-strip { display:flex; gap: 18px; overflow-x:auto; padding: 8px 2px 18px; scroll-snap-type: x mandatory; }
     .insta-card {
-      min-width: 280px;
-      max-width: 280px;
+      min-width: 320px;
+      max-width: 320px;
       border: 1px solid var(--line);
-      background: rgba(12,12,11,.92);
+      background: #0f0f0e;
       scroll-snap-align:start;
       overflow:hidden;
+      color: var(--ink);
+      transition: transform .18s ease, border-color .18s ease;
     }
-    .insta-card img { width:100%; height: 310px; object-fit: cover; filter: grayscale(.08) contrast(1.03) brightness(.9); }
-    .insta-card div { padding: 18px; }
-    .insta-card strong { display:block; margin-bottom: 8px; }
-    .insta-card span { color: var(--muted); font-size: 14px; }
+    .insta-card:hover { transform: translateY(-3px); border-color: rgba(199,168,107,.55); }
+    .insta-post-head { display:flex; align-items:center; gap: 10px; padding: 13px 14px; border-bottom: 1px solid rgba(242,239,232,.1); }
+    .insta-avatar { width: 34px; height: 34px; border-radius: 999px; display:grid; place-items:center; background: var(--accent); color:#080806; font-weight: 950; font-size: 12px; letter-spacing:.08em; }
+    .insta-account { display:flex; flex-direction:column; line-height:1.15; }
+    .insta-account strong { font-size: 14px; margin: 0; }
+    .insta-account span { color: var(--muted); font-size: 11px; }
+    .insta-media { position: relative; background:#050505; }
+    .insta-media img { width:100%; height: 390px; object-fit: cover; filter: contrast(1.02) brightness(.94); }
+    .play-badge { position:absolute; right: 14px; top: 14px; width: 42px; height: 42px; border-radius:999px; display:grid; place-items:center; background: rgba(6,6,6,.72); border:1px solid rgba(255,255,255,.28); color:#fff; font-size: 17px; }
+    .insta-caption { padding: 16px 16px 18px; }
+    .insta-caption strong { display:block; margin-bottom: 8px; font-size: 14px; }
+    .insta-caption p { color: var(--soft); margin: 0 0 12px; font-size: 14px; line-height: 1.45; }
+    .insta-caption span { color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing:.1em; text-transform:uppercase; }
 
     @media (max-width: 940px) {
       nav a:not(.btn) { display:none; }
@@ -689,10 +700,23 @@
           </div>
         </div>
         <div class="instagram-strip" aria-label="DFB Coaching Instagram preview">
-          <article class="insta-card"><img src="assets/danny-training-education.jpg" alt="Danny demonstrating training education"><div><strong>Training education</strong><span>Form, exercise selection, and smarter execution.</span></div></article>
-          <article class="insta-card"><img src="assets/danny-pr-lift.jpg" alt="Danny lifting in the gym"><div><strong>Strength work</strong><span>Real training, progressive overload, and intent.</span></div></article>
-          <article class="insta-card"><img src="assets/danny-wrist-straps.jpg" alt="Danny explaining wrist straps"><div><strong>Gym guidance</strong><span>Practical coaching cues you can apply.</span></div></article>
-          <article class="insta-card"><img src="assets/danny-gym-lifestyle.jpg" alt="Danny in the gym"><div><strong>DFB Coaching</strong><span>NYC personal training and online coaching.</span></div></article>
+          <a class="insta-card" href="https://www.instagram.com/reel/DaTCYMgxR_B/?igsh=MmU2NDk0OXJpbWsw" target="_blank" rel="noopener" aria-label="Watch DFB Coaching mobility reel on Instagram">
+            <div class="insta-post-head"><div class="insta-avatar">DFB</div><div class="insta-account"><strong>@dfbcoaching</strong><span>New York, New York</span></div></div>
+            <div class="insta-media"><img src="assets/instagram/dfb-reel-mobility.jpg" alt="DFB Coaching reel about mobility and recovery"><div class="play-badge" aria-hidden="true">▶</div></div>
+            <div class="insta-caption"><strong>dfbcoaching</strong><p>Coaching education from the gym floor — movement, recovery, and doing the basics with intent.</p><span>Watch Reel</span></div>
+          </a>
+
+          <a class="insta-card" href="https://www.instagram.com/reel/DaLRbaCxrwc/?igsh=MWt0OG5wb2Z5eGYxcg==" target="_blank" rel="noopener" aria-label="Watch DFB Coaching cable training reel on Instagram">
+            <div class="insta-post-head"><div class="insta-avatar">DFB</div><div class="insta-account"><strong>@dfbcoaching</strong><span>New York City</span></div></div>
+            <div class="insta-media"><img src="assets/instagram/dfb-reel-cable-training.jpg" alt="DFB Coaching reel demonstrating cable training technique"><div class="play-badge" aria-hidden="true">▶</div></div>
+            <div class="insta-caption"><strong>dfbcoaching</strong><p>Exercise execution matters. Small changes in setup and intent can make the movement work better.</p><span>Watch Reel</span></div>
+          </a>
+
+          <a class="insta-card" href="https://www.instagram.com/reel/DT8eekODwNn/?igsh=MWhicXIxY2F4NTNkNQ==" target="_blank" rel="noopener" aria-label="Watch DFB Coaching dumbbell training reel on Instagram">
+            <div class="insta-post-head"><div class="insta-avatar">DFB</div><div class="insta-account"><strong>@dfbcoaching</strong><span>Training reel</span></div></div>
+            <div class="insta-media"><img src="assets/instagram/dfb-reel-dumbbell-training.jpg" alt="DFB Coaching reel demonstrating dumbbell strength training"><div class="play-badge" aria-hidden="true">▶</div></div>
+            <div class="insta-caption"><strong>dfbcoaching</strong><p>Strength work, better form, and practical coaching cues you can take into your next session.</p><span>Watch Reel</span></div>
+          </a>
         </div>
       </div>
     </section>
