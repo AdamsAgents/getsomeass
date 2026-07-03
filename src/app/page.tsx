@@ -20,6 +20,12 @@ const services = [
 
 const projects = [
   {
+    name: "DFB Coaching",
+    href: "https://dfbcoaching.com",
+    category: "Client Website",
+    text: "Premium client website for Danny Bermeo, an NYC personal trainer focused on body composition, coaching funnels, and sustainable results.",
+  },
+  {
     name: "PRTA",
     href: "https://prta.io",
     category: "AI Product",
@@ -97,7 +103,7 @@ export default function Home() {
 
       <footer className="footer">
         <a className="brand" href="#top"><PeachLogo /><span><strong>ASS</strong><small>Adam&apos;s Software Services</small></span></a>
-        <div><a href="https://prta.io">PRTA</a><a href="https://teslaremodeling.com">Tesla Remodeling</a><a href="https://www.instagram.com/adamssoftwareservices" target="_blank" rel="noreferrer">Instagram</a></div>
+        <div><a href="https://dfbcoaching.com">DFB Coaching</a><a href="https://prta.io">PRTA</a><a href="https://teslaremodeling.com">Tesla Remodeling</a><a href="https://www.instagram.com/adamssoftwareservices" target="_blank" rel="noreferrer">Instagram</a></div>
         <p>© 2025 Adam&apos;s Software Services</p>
       </footer>
     </main>
